@@ -24,7 +24,7 @@ export default function Home() {
     window.location.reload();
   }
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center h-screen">
       {userData === null ? (
         <button className="border m-2 p-2 rounded" onClick={login}>
           <span>Log in</span>
@@ -36,7 +36,9 @@ export default function Home() {
       )
       } 
       {userData && (
-        <p className={`my-2`}>{userData?.profile.stxAddress.testnet.slice(0, 5) + "..." + userData?.profile.stxAddress.testnet.slice(-5)}</p>
+        <>
+          <p className={`my-2`}>Testnet: {userData?.profile.stxAddress.testnet.slice(0, 5) + "..." + userData?.profile.stxAddress.testnet.slice(-5)}</p>
+        </>
       )}
     </div>
   );
